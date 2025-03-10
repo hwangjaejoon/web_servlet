@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>쿠폰 등록</title>
+</head>
+<body>
+<form id="frm" method="post" action="./coupon.do">
+<p>쿠폰 등록 페이지</p>
+아이디 : <input type="text" title="영어와 한글만 사용 가능합니다." name="mid" id="mid" pattern="[a-zA-Z가-힣]+" required><br>
+쿠폰번호 : <input type="text" name="cou"><br>
+<input type="checkbox" id="ck" value="check" name="check"> 광고 수신 동의 (필수) <br><br>
+<input type="button" value="예매하기" onclick="cpgo()">
+</form>
+
+</body>
+<script>
+
+
+function cpgo(){
+	ck = document.getElementById("ck");
+	if(frm.mid.value==""){
+		alert("아이디를 입력해 주세요.");
+		frm.mid.focus();
+	}
+	else if(frm.cou.value==""){
+		alert("쿠폰번호를 입력해 주세요.");
+		frm.cou.focus();
+	}
+	else if(!ck.checked){
+		alert("광소 수신 동의에 체크해 주세요");
+	}
+	else{
+		frm.submit();
+	}
+}
+
+
+</script>
+</html>

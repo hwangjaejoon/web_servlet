@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript 기준 정규식 코드 사용법</title>
+</head>
+<body>
+
+</body>
+<script>
+//정규식코드 : replace, replaceAll, test, match, exec, split, search 와 아는 게 하나도 없다!
+/*
+ 정규식 코드 옵션	[ "" 사용 X ]
+ g : 전체 문자열을 파악하는 옵션
+ i : 대문자 소문자를 동일한 단어로 인식, 뒤에 붙음
+ [] : 문자열의 배열 범위
+ ^ : 부정을 뜻함 --> != 
+ {} : 패턴형태, 보통 문자 자릿수 범위
+ \ : 문자를 구분하여 설정
+ 
+ */
+/////////////////////////////////////////////////////////
+	//var word = "a12a34a56bz0aaaaaaaAAaaa01";
+	//replace
+	//var regp = /a/gi;
+	//console.log(word.replace(regp,""));
+/////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////
+//trim: 앞 뒤 여백 제거 (정규식 코드 아님)
+//var word = " 1 a 2 c 3 d ";
+//console.log(word);
+//console.log(word.trim());
+//var regp = / /g;
+//console.log(word.replace(regp,""));
+/////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////
+//test : true or false
+//var word = "010-aa1234-b5678";
+//var regp = /[a-z]/gi; 	//a~z 까지 문자가 있는 지 확인
+//var regp = /[^0-9]/g;		//0~9 외의 다른 문자가 있는 지 확인
+//console.log(regp.test(word));
+
+//var word = "(주)GS";
+//var regp = /[^ㄱ-힣a-zA-Z()]/g;
+//console.log(regp.test(word));
+/////////////////////////////////////////////////////////
+
+
+
+/////////////////////////////////////////////////////////
+//match : 배열로 체크 null의 경우 값을 찾을 수 없을 경우
+//var word = "hong@nate.com";
+//var regp = /^@.a-z-]/gi;
+//console.log(word.match(regp));
+
+////////////////////////////////////////////////////////
+
+//var word = "hong@gmail.com";
+//var regp = /a-z/g;
+//console.log(regp.exec(word));
+
+
+////////////////////////////////////////////////////////////
+/* test 정규직을 이용하여 패턴과 함께 단어를 체크하는 코드 */
+//var word  = "hong@지에스.co.kr";
+//var word2 = word.replace(/ /g,"");
+//var regp= /^[a-z0-9.-_]+\@[a-z0-9ㄱ-힣]+\.[a-z0-9ㄱ-힣]/i;
+//console.log(regp.test(word2));
+///////////////////////////////////////////////////////////
+
+//연락처 : 9 ~ 11 , 폰번호 => 10 ~ 11
+// var word = "023311234";		//최소 9자
+// var word2 = word.replace(/ /g,"");	//공백 제거
+// if(word2.length < 9){
+// 	console.log("똑바로 쓰십쇼");
+// }
+// else{
+// 	var regp = /[^0-9]/g;
+// 	var check = regp.test(word2);
+// 	if(check==true){
+// 		console.log("똑바로 쓰십쇼2");
+// 	}
+// 	else{
+// 		console.log("good");
+// 	}
+// }
+
+//폰번호 : 10 ~ 11
+var word = "0101212111";
+if(word.length < 10 || word.length > 11){
+	alert("똑바로 치십쇼");
+}
+else{
+	var regp = /^01\d{8,9}/g;
+	console.log(regp.test(word));
+}
+
+
+
+
+
+
+
+
+</script>
+</html>

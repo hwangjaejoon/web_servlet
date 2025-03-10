@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입 약관</title>
+</head>
+<body>
+<form id="frm" method="post" action="http://172.30.1.8:8080/web/signup.do">
+<p>회원가입 약관</p>
+<input type="checkbox" id="allck" onclick="allcheck()"> 전체선택 <br>
+<input type="checkbox" id="check1" name="ck" onclick="ag_check()"> 서비스 이용약관 동의 (필수)<br>
+<input type="checkbox" id="check2" name="ck" onclick="ag_check()"> 개인정보 수집 및 이용 (필수)<br>
+<input type="checkbox" id="check3" name="ck" onclick="ag_check()"> 이메일 정보 수신 약관 (필수)<br>
+<input type="checkbox" id="check4" name="ck"onclick="ag_check()"> 광고성 정보 수신 (선택)<br><br>
+<input type="button" value="회원가입" onclick="signup_go()">
+</form>
+<script>
+function allcheck(){
+	check1.checked = allck.checked;
+    check2.checked = allck.checked;
+    check3.checked = allck.checked;
+    check4.checked = allck.checked;
+}
+
+var ag_check = function(){	//하나라도 false 가 될 경우 전체선택 비활 또는 모두 체크가 되었을 경우 전체선택이 활성화
+	var ob = frm.ck;
+	var ea = ob.length;
+	var w = 0;
+	var count = 0;
+	while(w < ea){
+		if(ob[w].checked == true){
+			count++;
+		}
+	w++;	
+	}
+	if(ea == count){
+		document.getElementById("allck").checked = true;	//id 값 all 상태?
+	}
+	else{
+		document.getElementById("allck").checked = false;
+	}
+}
+
+
+
+function signup_go(){
+	if(!check1.checked || !check2.checked || !check3.checked){
+		alert("필수 문항에 체크해주세요");
+	}
+
+	else{
+	frm.submit();
+	}
+} 
+
+
+</script>
+</body>
+</html>

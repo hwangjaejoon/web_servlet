@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+
+@@@ 로그인 화면 만들기 @@@ 
+
+-->
+<head>
+<meta charset="UTF-8">
+<title>로그인 화면</title>
+</head>
+<body>
+<form id="frm" method="post" action="./loginokself.do" onsubmit="return ck()">
+아이디 :  <input type="text" name="mid"><br>
+패스워드 : <input type="password" name="mpass"><br>
+<input type="submit" value="로그인">
+</form>
+</body>
+<script>
+// 원래는 var 어쩌구 = document.getElementBuId("frm");
+function ck(){	
+	if(frm.mid.value==""){
+		alert("아이디를 입력해 주세요.");
+		frm.mid.focus();
+		return false;
+	}
+	else if(frm.mpass.value==""){
+		alert("비밀번호를 입력해 주세요.");
+		frm.mpass.focus();
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+
+
+
+</script>
+
+</html>

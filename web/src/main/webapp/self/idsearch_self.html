@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+
+@@@ 아이디 찾기 만들기 @@@ 
+
+-->
+<head>
+<meta charset="UTF-8">
+<title>아이디찾기 self</title>
+</head>
+<body>
+
+<form id="frm" method="post" action="./idsearchokself.do"onsubmit="return search()">
+고객명 : <input type="text" name="mname" required><br> <!-- required : 빈칸 허용 X -->
+연락처 : <input type="tel" name="number" maxlength="11" required> " - " 미포함하여 숫자만 입력하세요. <br>
+이메일 : <input type="email" name="email" required><br><br> 
+<input type="submit" value="아이디 찾기">
+</form>
+
+</body>
+<script>
+function search(){
+	if(frm.mname.value==""){
+		alert("고객명을 입력해 주세요.");
+		frm.mname.focus();
+		return false;
+	}
+	else if(frm.number.value==""){
+		alert("연락처 쓰세요");
+		return false;
+	}
+	else if(frm.email.value==""){
+		alert("이메일쓰세요");
+		return false;
+	}
+	else{
+	frm.submit();
+	return true;
+	}
+}
+
+
+</script>
+</html>

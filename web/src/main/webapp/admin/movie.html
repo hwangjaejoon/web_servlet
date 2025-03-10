@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>영화 예매</title>
+</head>
+<body>
+<form id="frm" method="post" action="./movieok.do">
+영화 예매 시스템 <br><br>
+고객명 : <input type="text" name="mname"><br>
+연락처 : <input type="text" name="mno"maxlength="11"> "-" 없이 숫자만 입력<br><br>
+
+<p>영화 선택 : </p>
+<ol>
+<li><input type="radio" name="subject" value="히트맨2">히트맨2</li>
+<li><input type="radio" name="subject" value="써니데이">써니데이</li>
+<li><input type="radio" name="subject" value="브루탈리스트">브루탈리스트</li>
+<li><input type="radio" name="subject" value="히어">히어</li>
+<li><input type="radio" name="subject" value="하얼빈">하얼빈</li>
+</ol>
+예매일자 : <input type="date" name="dt"><br><br>
+
+<input type="button" value="예매하기" onclick="gomovie()">
+</form>
+
+</body>
+<script src="./movie.js?v=3"></script>
+</html>

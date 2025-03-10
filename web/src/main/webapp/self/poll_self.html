@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>온라인 설문조사 self</title>
+</head>
+<body>
+<form id="frm" method="get" action="./pollok_self.do">
+<p>[가장 자신있는 개발 프로그램 언어는?]</p>
+<ol>
+<li><input type="radio" name="subject" value="HTML">HTML</li>
+<li><input type="radio" name="subject" value="Javascript">Javascript</li>
+<li><input type="radio" name="subject" value="Java">Java</li>
+<li><input type="radio" name="subject" value="Servlet">Servlet</li>
+<li><input type="radio" name="subject" value="Spring & boot">Spring & boot</li>
+<li><input type="radio" name="subject" value="Full Stack">Full Stack</li>
+</ol>
+
+<p>[배우고 싶은 언어는?]</p>
+<ul>
+<li><input type="checkbox" name="etc" value="Linux Server">Linux Server</li>
+<li><input type="checkbox" name="etc" value="Spring AI">Spring AI</li>
+<li><input type="checkbox" name="etc" value="Vue">Vue</li>
+<li><input type="checkbox" name="etc" value="Redis Database">Redis Database</li>
+</ul>
+
+<input type="button" value="설문조사 참여" onclick="pollok()">
+</form>
+</body>
+<script>
+function pollok(){
+	var subject = document.getElementsByName("subject"); //Elements 써서 배열인듯
+	var w;
+	var count = 0;
+	for(w=0; w<subject.length; w++){	//갯수 만큼 반복문
+		// console.log(w); //6개 이니 0~5 출력
+		if(subject[w].checked == true){
+			count++;
+		}
+	}
+	if(count > 0){
+		document.getElementById("frm").submit();
+	}
+	else{
+		alert("한 가지 문항에 답변 해주셔야 참여가 됩니다.");
+	}
+}
+</script>
+
+</html>
