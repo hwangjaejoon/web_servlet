@@ -26,7 +26,7 @@ public class notice_delete extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
 		String nidx = request.getParameter("nidx");
-		String ori_pw = request.getParameter("opi_pw");		//이게...db에 저장된 비번
+		String ori_pw = request.getParameter("ori_pw");		//이게...db에 저장된 비번
 		String npw = request.getParameter("npw");	//삭제할 시 입력한 비번
 		this.pw = response.getWriter();
 		
