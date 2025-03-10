@@ -44,13 +44,13 @@ overflow-y:auto;
 
 function notice_info(p){
 	switch(p){
-	case1:
+	case 1:
 		location.href = './notice_list.do';
 		break;
-	case2:
+	case 2:
 		location.href = './notice_modify.do';
 		break;
-	case3:
+	case 3:
 	if(confirm("해당 게시물은 삭제 시 복구되지 않아요..")){
 		location.href='./notice_delete.do';
 	}

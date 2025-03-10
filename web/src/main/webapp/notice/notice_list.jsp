@@ -5,7 +5,21 @@
  <%
  	ArrayList<ArrayList<String>> notice = (ArrayList<ArrayList<String>>)request.getAttribute("result");
  
+ /*
+  페이지 번호 생성
+  페이징 생성 방법
+  1. 한 페이지 당 몇 개씩 데이터를 출력할 것인지 설정
+  2. 데이터베이스에 있는 데이터의 총 갯수 / 한 페이지당 갯수(소숫점으로 나옴)
+  3. Math.ceil 사용하는 이유는 소숫점으로 나왔을 때 올림으로 페이지를 추가되도록 함
+ */
  
+ String total_page = notice.get(0).get(5);
+ int pg = 1;
+ if(total_page != null || !total_page.equals("")){
+	 float pg2 = Integer.parseInt(total_page) / 3f;
+	 pg = (int)Math.ceil(pg2);
+	out.print(pg);
+ }
  
  
  %>
@@ -16,7 +30,7 @@
 <title>공지사항 리스트</title>
 </head>
 <body>
-<p>현재 등록 된 게시물 : <%=notice.size() %></p>
+<p>현재 등록 된 게시물 : <%=notice.get(0).get(5) %></p>
 <table border="1" cellpadding="0" cellspacing="0">
 <thead>
 	<tr>
@@ -44,6 +58,21 @@
 	} %>
 </tbody>
 
+</table>
+
+<br><br><br>
+
+<table border="1">
+<tr>
+<%
+int w = 1;
+while(w <= pg){
+%>
+<td width=20 height=20 align="center"><a href="./notice_list.do?pageno=<%=w %>"><%=w %></a></td>
+<% 
+w++;
+} %>
+</tr>
 </table>
 
 
