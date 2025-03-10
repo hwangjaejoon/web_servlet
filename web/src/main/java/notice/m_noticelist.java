@@ -20,14 +20,20 @@ public class m_noticelist {
 
    m_dbinfo db = new m_dbinfo();
    
-   int spage = 0;//첫번째 배열값
-   int ea = 3;//한 페이지당 출력될 게시물의 수
+   int spage = 0;	//첫번째 배열값
+   int ea = 3;		//한 페이지당 출력될 게시물의 수
    
    
    
    
    public m_noticelist(int s) {
-      this.spage=s; //sql 쿼리 limit를 사용하기 위함
+	  if(s > 0) {	//1번 페이징 번호 외의 번호를 클릭했을 경우
+		  // (페이지번호-1) * 한 페이지당 출력할 갯수
+		  this.spage = (s - 1) * ea;
+	  }
+	  else {		  
+		  this.spage = s; //sql 쿼리 limit를 사용하기 위함
+	  }
    }
 
    public ArrayList<ArrayList<String>> db_data() {
