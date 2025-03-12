@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax Jquery 파일 전송</title>
+<script src="../jquery/jquery.js"></script>
+<script>
+$(function(){
+	$("#btn").click(function(){
+		if($("#mfile").val()==""){
+			alert("파일을 첨부해 주세요.");
+		}
+		else{
+			
+			/*
+		  //jquery ajax I/O 형태 : 두 가지 방식 -> 1. form태그 선언 후 new FormData()를 이용하여 Back-end로 전달
+		    ->  2. form태그가 없는 방식 : id로 [] + files[] 까지 적용해야 함
+			var $fileup = $("#mfile")[0];
+			var $file = $fileup.files[0];
+			var $formdata = new FormData();
+			console.log($formdata);
+			$formdata.append("mfile",$file);
+			console.log($formdata);
+			*/
+			
+			var $formdata = new FormData();
+			$formdata.append("mfile",$("#mfile")[0].files[0]);
+			//console.log($formdata.get("mfile"));
+			
+			$.ajax({
+				url : "./ajax_fileok.do",
+				cache : false,
+				type : "post",
+				dataType : "HTML", 		 
+				data : $formdata,		 //File 전송하는 data를 적용하는 방식
+				contentType : false,	 //multipart/form-data를 위해 false 설정
+				processData : false,	 //데이터를 문자화 하지 않도록 설정
+				success:function(result){
+					if(result=="ok"){
+						alert("전송완료");
+					}
+				},
+				error:function(error){
+					console.log(error);
+				}
+			});
+		}
+	});
+});
+</script>
+</head>
+<body>
+
+이미지 첨부파일 : <input type="file" id="mfile"><br>
+<input type="button" value="전송" id="btn">
+
+</body>
+</html>

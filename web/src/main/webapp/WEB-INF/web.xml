@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
   <display-name>web</display-name>
 
 <servlet>
@@ -129,21 +129,21 @@
 </servlet-mapping>
 
 <servlet>
-<servlet-name>mail_send</servlet-name>
-<servlet-class>mail.mail_sendok</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>mail_send</servlet-name>
-<url-pattern>/mail/mail_sendok.do</url-pattern>
-</servlet-mapping>
-
-<servlet>
 <servlet-name>notice_delete</servlet-name>
 <servlet-class>notice.notice_delete</servlet-class>
 </servlet>
 <servlet-mapping>
 <servlet-name>notice_delete</servlet-name>
 <url-pattern>/notice/notice_delete.do</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>ajax_postok</servlet-name>
+<servlet-class>ajax.ajax_postok</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>ajax_postok</servlet-name>
+<url-pattern>/ajax/ajax_postok.do</url-pattern>
 </servlet-mapping>
 
 </web-app>
