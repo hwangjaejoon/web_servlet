@@ -18,31 +18,38 @@ public class loginok extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
 		this.pw = response.getWriter();
-		response.setContentType("text/html;charset=utf-8");
+
 		this.mb.setMid(request.getParameter("mid"));
 		this.mb.setMpass(request.getParameter("mpass"));
 		
 		copyright cr = new copyright();
-		String result = cr.user_login(this.mb);		//Controller => Model로 DTO로 값을 전송
-		m_member mb2 = cr.mb;	//Model에서 DTO를 생성한 값을 Controller에서 받는 역할 
+		//Controller => Model로 DTO로 값을 전송
+		String result = cr.user_login(this.mb);
 		
-//		System.out.println(mb2.getMname());
-		
+		//Model에서 DTO를 생성한 값을 Controller에 받는 역활
+		m_member mb2 = cr.mmb;	
+				
 		if(result == "ok") {
-			//DTO를 활용하여 Session 생성
-			//HttpSession : Controller (loginok, logout) 에서만 설정
+			//DTO를 활용하여 Session을 생성
+			//HttpSession : Controller (loginok, logout)에서만 설정
 			HttpSession session = request.getSession();
 			session.setAttribute("mid", mb2.getMid());
 			session.setAttribute("mname", mb2.getMname());
 			session.setAttribute("memail", mb2.getMemail());
 			
-			
-			this.pw.print("<script> alert('로그인 완료'); location.href='./index.do';</script>");
+			this.pw.print("<script>"
+					+ "alert('로그인 하셨습니다.');"
+					+ "location.href='./index.do';"
+					+ "</script>");
 		}
 		else {
-			this.pw.print("<script> alert('아이디 및 비밀번호를 확인해 주세요'); history.go(-1);</script>");
+			this.pw.print("<script>"
+					+ "alert('아이디 및 패스워드를 확인하세요');"
+					+ "history.go(-1);"
+					+ "</script>");
 		}
 		
 		this.pw.close();
 	}
+
 }

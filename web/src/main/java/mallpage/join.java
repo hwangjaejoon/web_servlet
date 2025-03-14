@@ -13,19 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/mallpage/join.do")
 public class join extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	copyright cr = new copyright();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		footers ft = new footers();
-		request.setAttribute("cpdata", ft.cpdata);
+		ft.fts();
+		request.setAttribute("cpdata", ft.cdata);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("./join.jsp");
 		rd.forward(request, response);
 	}
-
 }
 
-class footers extends ab_footer{
+class footers extends ab_footer {
 	public footers() {
 		this.fts();
 	}
@@ -34,3 +33,6 @@ class footers extends ab_footer{
 		super.fts();
 	}
 }
+
+
+

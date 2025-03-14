@@ -1,19 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <script src="login_view.js?v=1"></script>
-<div class="products">
+ <script src="./login_view.js?v=1"></script>
+ <div class="products">
       <h3>MEMBER_LOGIN</h3>
       <div class="sub_view">
-        
-
-        <div class="loginview">
+         <div class="loginview">
           <span class="member_l"></span>
           <span class="login">
           <form id="frm" method="post" action="./loginok.do" onsubmit="return loginck()">   
           <table border="0" cellpadding="0" cellspacing="0" class="table_login">
           <tr>
           <td>
-          <input type="text" placeholder="아이디를 입력해주세요" class="id" name="mid">
+          <input type="text" name="mid" placeholder="아이디를 입력해주세요" class="id">
           </td>
           <td rowspan="2">
           <input type="submit" value="LOGIN" class="btn1">
@@ -21,7 +19,7 @@
           </tr>
           <tr>
           <td>
-          <input type="password" placeholder="패스워드를 입력해주세요" class="id" name="mpass">
+          <input type="password" name="mpass" placeholder="패스워드를 입력해주세요" class="id">
           </td>
           </tr>
           </table>

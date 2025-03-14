@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public abstract class ab_footer {
 	//copyright 정보 Model
 	copyright cr = new copyright();
-	ArrayList<String> cpdata = null;
+	ArrayList<String> cdata  = null;
 	public void fts() {
-		this.cpdata = cr.copyright_info();
-	}
+		this.cdata = this.cr.copyright_info();
+	}	
 }

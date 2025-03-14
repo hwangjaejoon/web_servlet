@@ -1,28 +1,15 @@
 function joinok(){
-	if(frm.mid.value==""){
-		alert("아이디를 입력해 주세요");
-		frm.mid.focus();
+	if(frm.mid.value == ""){
+		alert("아이디를 입력하세요");
 	}
-	else if(frm.mpass.value==""){
-		alert("비밀번호를 입력해 주세요");
-		frm.mpass.focus();
-	}
-	else if(frm.mname.value==""){
-		alert("이름을 입력해 주세요");
-		frm.mname.focus();
-	}
-	else if(frm.memail.value==""){
-		alert("이메일을 입력해 주세요");
-		frm.memail.focus();
-	}
-	else if(frm.mtel.value==""){
-		alert("전화번호를 입력해 주세요");
-		frm.mtel.focus();
+	else if(frm.mpass.value == ""){
+		alert("패스워드를 입력하세요");
 	}
 	else{
+		//세부검토
 		var pw2 = document.getElementById("mpass2").value;
 		if(pw2 != frm.mpass.value){
-			alert("비밀번호를 확인해 주세요");
+			alert("동일한 패스워드를 입력하셔야만 회원가입 진행 됩니다.");
 		}
 		else{
 			frm.submit();
